@@ -1,0 +1,46 @@
+;
+;	File 'start.top' was generated
+;	By user: francesca (1016)
+;	On host: kb-bioinfo01
+;	At date: Mon Oct 31 23:10:56 2016
+;
+;	This is a standalone topology file
+;
+;	It was generated using program:
+;	pdb2gmx - VERSION 4.6.5
+;
+;	Command line was:
+;	pdb2gmx -f SNO_TRAP1_chainA_MG.pdb -o start.gro -p start.top -his 
+;
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "./gromos54a7.ff/forcefield.itp"
+
+; Include chain topologies
+#include "start_Protein_chain_A.itp"
+#include "start_Other_chain_A2.itp"
+
+; Include water topology
+#include "./gromos54a7.ff/spc.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "./gromos54a7.ff/ions.itp"
+
+[ system ]
+; Name
+Protein was modified by http://coil.msp.univie.ac.at/ in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Other_chain_A2      1
+SOL             147906

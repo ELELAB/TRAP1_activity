@@ -1,0 +1,31 @@
+;
+;	File 'start_Other_chain_A2.itp' was generated
+;	By user: francesca (1016)
+;	On host: kb-bioinfo01
+;	At date: Mon Oct 31 22:57:12 2016
+;
+;	This is a include topology file
+;
+;	It was generated using program:
+;	pdb2gmx - VERSION 4.6.5
+;
+;	Command line was:
+;	pdb2gmx -f SNO_TRAP1_chainA_MG.pdb -o start.gro -p start.top -his 
+;
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+Other_chain_A2      3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue 613 MG  rtp MG   q +2.0
+     1         MG    613     MG     MG      1          2     24.305   ; qtot 2
+
+; Include Position restraint file
+#ifdef POSRES
+#include "posre_Other_chain_A2.itp"
+#endif
+
