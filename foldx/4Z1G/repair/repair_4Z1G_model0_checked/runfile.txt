@@ -1,0 +1,7 @@
+command=RepairPDB
+pdb=4Z1G_model0_checked.pdb
+
+temperature=298
+water=-CRYSTAL
+complexWithDNA=true
+outPDB=true
