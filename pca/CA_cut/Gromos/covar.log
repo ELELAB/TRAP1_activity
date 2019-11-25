@@ -1,0 +1,20 @@
+Covariance analysis log, written Sat Nov  2 06:13:39 2019
+
+Program: covar
+Working directory: /data/user/shared_projects/trap1_activity/simulations/analysis_SH.SNO/pca/monomer/CA_cut/Gromos
+
+Read 6001 frames from /data/user/shared_projects/trap1_activity/simulations/analysis_SH.SNO/pca/monomer/CA_cut/Gromos/traj_comb_mono.xtc (time 0 to 600000 ps)
+Read reference structure for fit from /data/user/shared_projects/trap1_activity/simulations/analysis_SH.SNO/pca/monomer/CA_cut/Gromos/traj.gro
+Read index groups from index.pca.ndx
+
+Analysis group is 'CA' (609 atoms)
+Fit group is 'r_484-501_r_504-507_r_516-519_r_523-531_r_549-552_r_557-568_r_570-588' (70 atoms)
+Analysis is non-mass weighted
+Fit is non-mass weighted
+Diagonalized the 1827x1827 covariance matrix
+Trace of the covariance matrix before diagonalizing: 17903.1
+Trace of the covariance matrix after diagonalizing: 17903.2
+
+Wrote 1827 eigenvalues to eigenval.xvg
+Wrote average structure to average.pdb and eigenvec.trr
+Wrote eigenvectors 1 to 1827 to eigenvec.trr

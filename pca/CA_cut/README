@@ -1,0 +1,26 @@
+We performed the Principal Component Analysis (PCA) to compare in a conveniently simplified two-dimensional (2D) space the conformational space explored by the two TRAP1 protomers (buckled/chain A and straight/chain B) in their two variants (TRAP1SH and TRAP1SNO). We collected two common essential subspaces, identified as Amber and Gromos, derived from the PCA of the concatenated trajectories performed with ff99SB*-ILDN or GROMOS 54a7, respectively. We calculated the covariance matrix of only Cα atoms of the protein for the region 108-716.  The procedure and the steps explained in this README file permit to reproduce the data and the plots contained in the repository and showed in the manuscript. In this README file, we used the correct numbering of the protein residues, as in the experimental pdb file (PDB entry 4IPE). However, the numbering of the residues is different in our MD trajectories and the same goes for our scripts.
+Firstly we created two subfolders called Amber and Gromos under:
+
+/pca/CA_cut
+
+In these subfolders, we used the bash scripts called pca.Amber.sh and pca.Gromos.sh to perform the PCA and collect the associated data (for the analysis on the MD trajectories performed with ff99SB*-ILDN or GROMOS 54a7, respectively). We reported as an example the commands used for the analysis of the MD trajectories performed with ff99SB*-ILDN (e.g. in Amber subfolder) but analogous commands can be used to perform the analysis on MD trajectories with GROMOS 54a7. We run the scripts with:
+
+cd /pca/CA_cut/Amber/
+bash pca.Amber.sh
+
+To correctly perform the PCA, the scripts require that other two files must be located in the working directory (i.e. Amber subfolder): residuetypes.dat and dividi_pdb.pl
+The residuetypes.dat file is usually located in the GROMACS library directory and contains all the residue names and types (e.g. CYS Protein). We made a copy of residuetypes.dat in the working directory (i.e. Amber subfolder) and add the S-nitrosylated cysteine name and type (SNO Protein). In this way, GROMACS correctly includes the S-nitrosylated cysteine as a Protein type. One can also directly include the S-nitrosylated cysteine name and type in the residuetypes.dat file located in the GROMACS library directory. 
+The dividi_pdb.pl is a perl script that permits to extract a .pdb files for each structure/model contained in a single .pdb file (see below).
+Firstly, the pca.Amber.sh uses the make_ndx GROMACS tool to produce GROMACS reference index files (called index.ref.ndx) to select the groups of atoms on which we calculated the PCA. We calculated the covariance matrix of only the Cα atoms of the residues 108-716, not including the unstructured regions at the N- and C-terminal of the protein. The script uses the index.ref.ndx files to filter the MD trajectories, generating new filtered-ones that containing only the atoms of interest. Then the pca.Amber.sh concatenates the filtered-MD trajectories in a single combined one, using the trjcat GROMACS tool. The pca.Amber.sh uses make_ndx tool to produce a reference index file (called index.pca.ndx) and the trjconv GROMACS tool to extract a reference structure from the starting tpr file of the MD trajectory of the buckled protomer SH (chain A of TRAP1)(called traj.gro). We used these files for the calculation of the PCA. Before the covariance matrix calculation, the pca.Amber.sh performs the alignment of the structures from the concatenated trajectory on the Cα atoms of the residue 591-608, 611-614, 618-626, 630-638, 656-659, 664-675, 677-695 in the C-terminal domain of the protein. The pca.Amber.sh script performs the calculation of the covariance matrix and the analysis of the eigenvectors with the covar and anaeig GROMACS tools. The pca.Amber.sh calculates the first three principal components (PCs) (proj2d_1vs2.xvg and proj2d_1vs3.xvg) and for each of them creates a subfolder (e.g. ED_eig1) in which it calculates their two extreme projections along the combined trajectory and interpolates ten structures between them. The pca.Amber.sh extracts each of the ten structures in single pdb files using the dividi_pdb.pl script. We then removed the .xtc files to save storage space. We then used the python script called get_variance.py to calculate the percentage of the total variance of the system described by each PC as:
+
+python get_variance.py eigenval.xvg
+ 
+In the subfolder plots (e.g. Amber/plots/), we then used an in-house R script (called pca.R) that performs 2D kernel density estimation, employing the kde2d function from the MASS package and the stat_density_2d function from ggplot2 package to obtain 2D density plots along the first two PCs and the first and the third PCs. We collected the coordinates of the most densely populated areas identified on the PCA 2D plots. We used the sub_ensemble.sh bash script (located in /pca/CA_cut/Amber/) to extract the corresponding conformations of TRAP1 in the concatenated trajectories (saved as pdb file) using trjconv tool. We run:
+
+cd plots
+rscipt pca.R
+cd ..
+bash sub_ensemble.sh
+
+We performed the rendering of these structures using Pymol (the corresponding Pymol session is called figure.pse). We then combined the plots in the final figure using Adobe Illustrator.
+
