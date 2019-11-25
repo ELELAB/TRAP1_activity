@@ -20,4 +20,7 @@ psn -> the files and scripts for the protein structure network analysis
 pca-> the files and scripts for the principal component analysis 
 
 
+N.B. the topology, running input files and trajectories filtered on the protein atoms are available for download in the OSF repository:
+https://osf.io/wytg2/
+
 N.B. the numbering in the trajectory is shifted so that C516 of Danio rerio (PDB numbering, 4IPE) is C432 in the gromacs files.
