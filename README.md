@@ -4,7 +4,7 @@ Repository associated to the publication:
 
 
 S-nitrosylation affects TRAP1 structure and ATPase activity and contributes to mitochondrial homeostasis
-Fiorella Faienza, Matteo Lambrughi, Salvatore Rizza, Chiara Pecorari, Paola Giglio, Juan Salamanca Viloria, Maria Francesca Allega, Giovanni Chiappetta, Francesca Pacello, Andrea Battistoni, Andrea Rasola, Elena Papaleo, Giuseppe Filomeni, submitted
+Fiorella Faienza, Matteo Lambrughi, Salvatore Rizza, Chiara Pecorari, Paola Giglio, Juan Salamanca Viloria, Maria Francesca Allega, Giovanni Chiappetta, Francesca Pacello, Andrea Battistoni, Andrea Rasola, Elena Papaleo, Giuseppe Filomeni, Biochem Pharmacol 2020 Jun;176:113869. doi: 10.1016/j.bcp.2020.113869.
 
 
 contact person for the repository: Elena Papaleo, elenap@cancer.dk
