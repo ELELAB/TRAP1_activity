@@ -7,7 +7,7 @@ S-nitrosylation affects TRAP1 structure and ATPase activity and contributes to m
 Fiorella Faienza, Matteo Lambrughi, Salvatore Rizza, Chiara Pecorari, Paola Giglio, Juan Salamanca Viloria, Maria Francesca Allega, Giovanni Chiappetta, Francesca Pacello, Andrea Battistoni, Andrea Rasola, Elena Papaleo, Giuseppe Filomeni, Biochem Pharmacol 2020 Jun;176:113869. doi: 10.1016/j.bcp.2020.113869.
 
 
-contact person for the repository: Elena Papaleo, elenap@cancer.dk
+contact person for the repository: Elena Papaleo, elenap-at-cancer.dk
 
 This repository contains the input data for the modelling and simulations, the outputs from analyses and the associated scripts to reproduce our data.
 
